@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="calculator">
-      <input class="expressionDisplay" type="text" readonly/>
-      <input class="display" type="text" readonly value="" />
-      <div class="buttons">
-        <button class="button gray">AC</button>
-        <button class="button gray">+/-</button>
-        <button class="button gray">%</button>
-        <button class="button operator">÷</button>
-        <button class="button number">7</button>
-        <button class="button number">8</button>
-        <button class="button number">9</button>
-        <button class="button operator">x</button>
-        <button class="button number">4</button>
-        <button class="button number">5</button>
-        <button class="button number">6</button>
-        <button class="button operator">-</button>
-        <button class="button number">1</button>
-        <button class="button number">2</button>
-        <button class="button number">3</button>
-        <button class="button operator">+</button>
-        <button class="button number zero">
-          <p style="margin-left: 27px">0</p>
-        </button>
-        <button class="button dot">.</button>
-        <button class="button equal">=</button>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="calculator">
+    <div class="displays">
+      <input class="expressionDisplay" type="text" readonly />
+      <textarea class="display" type="text" readonly value="" ></textarea>
     </div>
-    <script src="./script.js"></script>
-  </body>
+    <div class="buttons">
+      <button class="button gray clear">AC</button>
+      <button class="button gray erase"><svg class="svg-icon"
+          style="width: 100%; height: 1.5em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+          viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M980.4 849.5H326.2c-13.6 0-25.3-7.8-31.7-20.4L17.2 537.5c-15.6-16.4-15.6-46.3 0-62.7L299.3 178c7.7-8.1 18.1-11.9 28.5-10.8h652.5c21 0 36.8 18.2 36.8 42.3v597.8c0 24-15.8 42.2-36.7 42.2z m-640.8-60h617.5V227.1H335.4l-265.2 279 269.4 283.4z" />
+          <path d="M395.929 710.279l446.534-446.534 42.426 42.426-446.534 446.534z" />
+          <path d="M395.999 306.162l42.426-42.426L884.958 710.27l-42.426 42.426z" />
+        </svg></button>
+      <button class="button gray percent">%</button>
+      <button class="button operator">÷</button>
+      <button class="button number">7</button>
+      <button class="button number">8</button>
+      <button class="button number">9</button>
+      <button class="button operator">x</button>
+      <button class="button number">4</button>
+      <button class="button number">5</button>
+      <button class="button number">6</button>
+      <button class="button operator">-</button>
+      <button class="button number">1</button>
+      <button class="button number">2</button>
+      <button class="button number">3</button>
+      <button class="button operator">+</button>
+      <button style="padding-left: 27px" class="button number zero">0</button>
+      <button class="button dot">,</button>
+      <button class="button equal">=</button>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
 </html>
