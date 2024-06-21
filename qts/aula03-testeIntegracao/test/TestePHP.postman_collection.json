@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "928a480c-3981-47b0-84e6-a2b9f323f16c",
+		"name": "TestePHP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36354403"
+	},
+	"item": [
+		{
+			"name": "requestGET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/Controller/usuario.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"Controller",
+						"usuario.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "requestPOST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idUsuario\": 1,\r\n  \"nome\": \"Coco\",\r\n  \"sobrenome\": \"Silva\",\r\n  \"idade\": 30,\r\n  \"cpf\": \"123.456.789-00\",\r\n  \"renda_mensal\": 3500.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/Controller/usuario.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"Controller",
+						"usuario.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "666",
+							"disabled": true
+						},
+						{
+							"key": "nome",
+							"value": "ze",
+							"disabled": true
+						},
+						{
+							"key": "sobrenome",
+							"value": "ze",
+							"disabled": true
+						},
+						{
+							"key": "idade",
+							"value": "12",
+							"disabled": true
+						},
+						{
+							"key": "cpf",
+							"value": "123.456.789-10",
+							"disabled": true
+						},
+						{
+							"key": "renda_mensal",
+							"value": "2500",
+							"disabled": true
+						},
+						{
+							"key": "taxa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "imposto",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "requestPUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idUsuario\": 1,\r\n  \"nome\": \"Coco\",\r\n  \"sobrenome\": \"Silva\",\r\n  \"idade\": 43,\r\n  \"cpf\": \"123.456.789-00\",\r\n  \"renda_mensal\": 4500.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/Controller/usuario.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"Controller",
+						"usuario.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "requestPATCH",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"UPDATE tbUsuario SET nome='Marcelo Rezende' WHERE idUsuario=1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/Controller/usuario.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"Controller",
+						"usuario.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "requestDELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/Controller/usuario.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"Controller",
+						"usuario.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
