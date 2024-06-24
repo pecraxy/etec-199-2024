@@ -22,7 +22,7 @@
             return '0%';
         }
         if ($renda > 2259.20 && $renda <= 2826.65){
-            return '7,5%';
+            return "7,5%";
         }
         if ($renda > 2826.65 && $renda <= 3751.05){
             return '15%';

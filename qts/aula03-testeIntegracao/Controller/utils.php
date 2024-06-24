@@ -7,7 +7,11 @@
     
    function receberDados(){
       $dados = json_decode(file_get_contents('php://input'));
-      $id = $dados->idUsuario;
+      if (!isset($dados->idUsuario)){
+         $id = 0;
+      } else{
+         $id = $dados->idUsuario;
+      }
       $nome = $dados->nome;
       $sobrenome = $dados->sobrenome;
       $idade = $dados->idade;

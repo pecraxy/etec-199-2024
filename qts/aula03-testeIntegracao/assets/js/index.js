@@ -1,3 +1,4 @@
+import regTax from './regTax.js';
 const form = document.querySelector('.form');
 const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
 form.addEventListener('submit', (e) => {
@@ -11,6 +12,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 });
 
+
 const confirmBtn = document.querySelector('#btnSim');
 confirmBtn.addEventListener('click', () => {
     let valNome = document.querySelector('#name').value;
@@ -18,12 +20,13 @@ confirmBtn.addEventListener('click', () => {
     let valIdade = document.querySelector('#idade').value;
     let valCpf = document.querySelector('#cpf').value;
     let valRenda = document.querySelector('#rendaMensal').value;
-    var destino = "result.html?nome=" + encodeURIComponent(valNome) 
-        + "&sobrenome=" + encodeURIComponent(valSobrenome)
-        + "&idade=" + encodeURIComponent(valIdade)
-        + "&cpf=" + encodeURIComponent(valCpf)
-        + "&renda=" + encodeURIComponent(valRenda);
-    window.location.href = destino;
+    regTax(valNome, valSobrenome, valIdade, valCpf, valRenda)
+        .then(res => {
+            console.log(res.json());
+        })
+        .then(data => {
+            console.log(data);
+        })
 });
 
 function changeModalData(){
