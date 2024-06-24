@@ -8,7 +8,7 @@ CREATE TABLE tbUsuario (
     idade INT,
     CPF VARCHAR(14) UNIQUE,
     renda_mensal DECIMAL(10, 2),
-    taxa VARCHAR(3),
+    taxa VARCHAR(4),
     imposto DECIMAL(5, 2)
 );
 

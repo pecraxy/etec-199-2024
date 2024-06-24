@@ -25,6 +25,7 @@
       <h1>Declaração do Imposto de Renda</h1>
       <p>Não deixe o leão agressivo.</p>
     </div>
+    <div class="jaTem"><p>Já fez sua declaração? Consulte <a href="../result/index.html">aqui</a>.</p></div>
     <div>
       <form class="form">
         <label for="nome">Nome</label>
@@ -67,6 +68,41 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="errorModal" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="errorTitle">!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color: black">
+          <p id="errorMessage"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="succesModal" tabindex="-3" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="errorTitle">Dados enviados com sucesso!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color: black">
+          <p id="errorMessage">Para consultar o imposto a ser pago, acesse <a href="../result/">esse link</a>.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 <script type="module" src="../../assets/js/index.js"></script>
 <script src="../../assets/js/formatter/cpf.js"></script>

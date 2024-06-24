@@ -33,5 +33,6 @@
         if ($renda > 4664.68){
             return '27,5%';
         }
+        return 0;
     }
 ?>

@@ -12,10 +12,14 @@
     $req = $_SERVER;
     $conexao = conectar();
     
-    //echo $req["REQUEST_METHOD"];
     switch ($req["REQUEST_METHOD"]) {
         case 'GET':
-            $usuarios = json_encode(pegar_usuario($conexao));
+            $query = $req["QUERY_STRING"];
+            $cpf = null;
+            if (isset(explode('=', $query, 2)[1])){
+                $cpf = explode('=', $query, 2)[1];
+            }
+            $usuarios = json_encode(pegar_usuario($conexao, $cpf));
             echo $usuarios;
             break;
         case 'POST':
