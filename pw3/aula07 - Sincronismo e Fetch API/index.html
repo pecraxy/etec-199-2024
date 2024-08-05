@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/akinator.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>CEPinator</title>
+
+</head>
+
+<body>
+  <section class="imgSection">
+    <img src="./img/akinator.png" alt="" srcset="">
+  </section>
+
+  <section class="formSection">
+    <div class="welcome">
+      <img src="./img/CEPinator-logo.png" class="img">
+      <p style="color: white;">Vou adivinhar a rua onde você mora!</p>
+    </div>
+    <div>
+      <form class="form">
+        <div class="bubble-question bubble"><svg xmlns="http://www.w3.org/2000/svg" width="" height="">
+            <polygon points="30,0 30,20 29,25 27,30 22,37 15,45 0,60 30,60 30,102 85,102 85,0"></polygon>
+          </svg>
+          <div class="bubble-tail">
+            <p class="question-number" id="step-info">1</p>
+          </div>
+          <div class="bubble-body">
+            <p class="question-text" id="question-label">Qual o seu nome?
+              <input type="text" name="name" class="question-text" id="name question-label"  />
+            </p>
+          </div>
+        </div>
+        <div class="bubble-question bubble"><svg xmlns="http://www.w3.org/2000/svg" width="85" height="102">
+            <polygon points="30,0 30,20 29,25 27,30 22,37 15,45 0,60 30,60 30,102 85,102 85,0"></polygon>
+          </svg>
+          <div class="bubble-tail">
+            <p class="question-number" id="step-info">2</p>
+          </div>
+          <div class="bubble-body">
+            <p class="question-text" id="question-label">Qual o seu sobrenome?
+              <input type="text" name="name" class="question-text" id="sobrenome question-label"  />
+            </p>
+          </div>
+        </div>
+        <div class="bubble-question bubble"><svg xmlns="http://www.w3.org/2000/svg" width="85" height="102">
+            <polygon points="30,0 30,20 29,25 27,30 22,37 15,45 0,60 30,60 30,102 85,102 85,0"></polygon>
+          </svg>
+          <div class="bubble-tail">
+            <p class="question-number" id="step-info">3</p>
+          </div>
+          <div class="bubble-body">
+            <p class="question-text" id="question-label">Qual a sua idade?
+              <input type="text" name="name" id="name" class="question-text" id="idade question-label"  />
+            </p>
+          </div>
+        </div>
+        <div class="bubble-question bubble"><svg xmlns="http://www.w3.org/2000/svg" width="85" height="102">
+            <polygon points="30,0 30,20 29,25 27,30 22,37 15,45 0,60 30,60 30,102 85,102 85,0"></polygon>
+          </svg>
+          <div class="bubble-tail">
+            <p class="question-number" id="step-info">4</p>
+          </div>
+          <div class="bubble-body">
+            <p class="question-text" id="question-label">Qual o seu CEP?
+              <input type="text" name="name" id="cep" class="question-text" id="cep question-label" required />
+            </p>
+          </div>
+        </div>
+        <div class="bubble-question bubble"><svg xmlns="http://www.w3.org/2000/svg" width="85" height="102">
+            <polygon points="30,0 30,20 29,25 27,30 22,37 15,45 0,60 30,60 30,102 85,102 85,0"></polygon>
+          </svg>
+          <div class="bubble-tail">
+            <p class="question-number" id="step-info">5</p>
+          </div>
+          <div class="bubble-body">
+            <p class="question-text" id="question-label">Qual a sua comida favorita?
+              <input type="text" name="name" id="name" class="question-text" id="comida question-label"  />
+            </p>
+          </div>
+        </div>
+        <button type="submit">Adivinhar....</button>
+      </form>
+    </div>
+  </section>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">CEPinator!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color: black">
+          <p id="desejaSaber" style="color: black; font-weight: 500;">Você mora nessa rua?</p>
+          <p id="resultCep"><strong>CEP: </strong></p>
+          <p id="logradouro"><strong>Logradouro: </Strong></p>
+          <p id="complemento"><strong>Complemento: </strong></p>
+          <p id="unidade"><strong>Unidade: </strong></p>
+          <p id="bairro"><strong>Bairro: </strong></p>
+          <p id="localidade"><strong>Localidade: </strong></p>
+          <p id="uf"><strong>UF: </strong></p>
+          <p id="ibge"><strong>IBGE: </strong></p>
+          <p id="gia"><strong>GIA: </strong></p>
+          <p id="ddd"><strong>DDD: </strong></p>
+          <p id="siafi"><strong>SIAFI: </strong></p>
+        </div>
+        <div class="modal-footer" style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: nowrap;">
+          <button type="button" id="btnSim" class="btn btn-primary"  data-bs-dismiss="modal" onclick="alert('Problema seu!')">Sim</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="alert('Que peninha!')">Não</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./js/index.js"></script>
+
+
+</html>
