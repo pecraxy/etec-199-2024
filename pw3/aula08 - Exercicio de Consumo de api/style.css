@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #002d00; /* Cor de fundo verde escuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.table {
+    background: linear-gradient(135deg, #004d00 50%, #003d00 50%); /* Gradiente para um visual mais rico */
+    border-radius: 20px;
+    width: 80%;
+    min-height: 60%;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+    color: #fff;
+    text-align: center;
+    border: 5px solid #d4af37; /* Borda dourada para um toque luxuoso */
+    overflow: hidden;
+}
+
+.dealer, .player {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #d4af37; /* Texto dourado */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 120px;
+    height: 180px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #000;
+    position: relative;
+    border: 2px solid #000; /* Borda preta para as cartas */
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #d4af37; /* Dourado para botões */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #b8860b; /* Tom de dourado mais escuro ao passar o mouse */
+}
+
+button:active {
+    background-color: #a67b5b; /* Tom de dourado ainda mais escuro ao clicar */
+    transform: scale(0.98); /* Efeito de clique */
+}
