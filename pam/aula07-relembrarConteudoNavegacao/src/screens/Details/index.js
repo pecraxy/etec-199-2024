@@ -13,7 +13,7 @@ export default function Details() {
   const navigation = useNavigation();
   return (
     <View style={styles.viewContainer}>
-      <Image resizeMode='stretch' style={styles.imageBanner} source={require(`../../Img/${route.params.imagem}`)} />
+      <Image resizeMode='stretch' style={styles.imageBanner} source={{uri: route.params?.imagem}} />
       <TouchableOpacity style={styles.backButton} onPress={navigation.goBack}>
         <AntDesign name="leftcircle" size={35} color="white" />
       </TouchableOpacity>

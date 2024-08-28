@@ -12,9 +12,10 @@ export default function App() {
   const [movies, setMovies] = useState();
   useEffect(() => {
       async function buscarInformacoes(){
-        const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=api&language=pt-BR&page=1");
+        const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=ab96a284341c6fa9421a6bd4210e2e2b&language=pt-BR&page=1");
         const data = await response.json();
         console.log(data.results);
+        setMovies(data.results);
       }
       buscarInformacoes();
   }, []);
@@ -27,13 +28,13 @@ export default function App() {
           <FlatList
             horizontal={true}
             showsHorizontalScrollIndicator={false}
-            data={Filmes}
-            keyExtractor={(item) => item.id}
+            data={movies}
+            keyExtractor={(movies) => movies.id}
             renderItem={({ item }) => (
               <CardMovies
-                titulo={item.nome}
-                imagem={item.imagem}
-                nota={item.nota}
+                titulo={item.title}
+                imagem={'https://image.tmdb.org/t/p/original' + item.poster_path}
+                nota={item.vote_average}
               />
             )}
           />
