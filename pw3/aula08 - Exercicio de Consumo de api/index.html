@@ -1,30 +1,216 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesa de Blackjack</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Calabret - Aposta Calabreso</title>
+    <!-- Importando Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo inspirado na Blaze */
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            width: 100%;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ff4747;
+        }
+
+        .navbar .saldo {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .navbar .saldo span {
+            color: #ff4747;
+        }
+
+        .navbar .deposito-icon {
+            font-size: 1.5rem;
+            color: #ffffff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .navbar .deposito-icon:hover {
+            color: #ff4747;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            margin: auto;
+        }
+
+        .logo-container {
+            flex-basis: 30%;
+            text-align: center;
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .slogan {
+            font-size: 1.5rem;
+            color: #ff4747;
+        }
+
+        .games-section {
+            background-color: #121212;
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .game-card {
+            background-color: #1a1a1a;
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(255, 71, 71, 0.3);
+        }
+
+        .game-card img {
+            border-radius: 15px 15px 0 0;
+        }
+
+        .game-card .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .game-card h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            color: #b3b3b3;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .game-card button {
+            background-color: #ff4747;
+            border: none;
+            color: #ffffff;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .game-card button:hover {
+            background-color: #e43b3b;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            color: #b3b3b3;
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- Importando ícones do FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="table">
-        <div class="dealer">
-            <h2>Jogador 1</h2>
-            <div class="cards" id="dealer-cards">
-                <!-- Cartas do dealer serão inseridas aqui -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Jogos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Promoções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Suporte</a>
+                    </li>
+                </ul>
+                <div class="saldo">
+                    Saldo: <span>R$ 1.000,00</span>
+                </div>
+                <i class="fas fa-wallet deposito-icon"></i>
             </div>
         </div>
-        <div class="player">
-            <h2>Jogador 2</h2>
-            <div class="cards" id="player-cards">
-                <!-- Cartas do jogador serão inseridas aqui -->
+    </nav>
+    <h2 class="text-center mb-5" style="margin-top: 10%;">CALABRET</h2>
+    <div class="main-content">
+                    <h2 class="text-center mb-5">Escolha seu jogo</h2>
+        <div class="logo-container">
+            <img src="1.png" alt="Calabret Logo">
+            <p class="slogan">Aposta Calabreso</p>
+        </div>
+        
+        <section class="games-section">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card game-card h-100">
+                        <img src="https://images.sigma.world/blackjack-card-counting-scaled-1.jpg" class="card-img-top" alt="Blackjack">
+                        <div class="card-body">
+                            <h2 class="card-title">Blackjack</h2>
+                            <p class="card-text">Tente sua sorte no clássico jogo de 21.</p>
+                            <a href="jogo.html"><button class="btn btn-primary">Jogar Agora</button></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Adicione mais cards de jogos aqui conforme necessário -->
             </div>
-        </div>
-        <div class="controls">
-            <button id="hit-button">Pedir Carta</button>
-            <button id="stand-button">Parar</button>
-        </div>
+        </section>
     </div>
-    <script src="script.js"></script>
+
+    <footer>
+        <p>&copy; 2024 Calabret. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Importando Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
