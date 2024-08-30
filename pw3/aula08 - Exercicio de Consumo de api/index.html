@@ -7,151 +7,9 @@
     <title>Calabret - Aposta Calabreso</title>
     <!-- Importando Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Estilo inspirado na Blaze */
-        body {
-            background-color: #0d0d0d;
-            color: #ffffff;
-            font-family: 'Arial', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .navbar {
-            background-color: #1a1a1a;
-            padding: 10px 20px;
-            width: 100%;
-        }
-
-        .navbar-nav .nav-item .nav-link {
-            color: #ffffff;
-            font-size: 1.1rem;
-            margin-right: 15px;
-            transition: color 0.3s;
-        }
-
-        .navbar-nav .nav-item .nav-link:hover {
-            color: #ff4747;
-        }
-
-        .navbar .saldo {
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin-right: 15px;
-        }
-
-        .navbar .saldo span {
-            color: #ff4747;
-        }
-
-        .navbar .deposito-icon {
-            font-size: 1.5rem;
-            color: #ffffff;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .navbar .deposito-icon:hover {
-            color: #ff4747;
-        }
-
-        .main-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-grow: 1;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            margin: auto;
-        }
-
-        .logo-container {
-            flex-basis: 30%;
-            text-align: center;
-        }
-
-        .logo-container img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .slogan {
-            font-size: 1.5rem;
-            color: #ff4747;
-        }
-
-        .games-section {
-            background-color: #121212;
-            padding: 20px;
-            border-radius: 15px;
-            width: 100%;
-            max-width: 800px;
-        }
-
-        .game-card {
-            background-color: #1a1a1a;
-            border: none;
-            border-radius: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .game-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(255, 71, 71, 0.3);
-        }
-
-        .game-card img {
-            border-radius: 15px 15px 0 0;
-        }
-
-        .game-card .card-body {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .game-card h2 {
-            color: #ffffff;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .game-card p {
-            color: #b3b3b3;
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
-        .game-card button {
-            background-color: #ff4747;
-            border: none;
-            color: #ffffff;
-            font-size: 1rem;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .game-card button:hover {
-            background-color: #e43b3b;
-        }
-
-        footer {
-            background-color: #1a1a1a;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-        }
-
-        footer p {
-            margin: 0;
-            color: #b3b3b3;
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="./style/index.css">
     <!-- Importando ícones do FontAwesome -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
@@ -174,29 +32,26 @@
                     </li>
                 </ul>
                 <div class="saldo">
-                    Saldo: <span>R$ 1.000,00</span>
+                    Saldo: R$<span id="valorSaldo"></span>
                 </div>
                 <i class="fas fa-wallet deposito-icon"></i>
             </div>
         </div>
     </nav>
-    <h2 class="text-center mb-5" style="margin-top: 10%;">CALABRET</h2>
     <div class="main-content">
-                    <h2 class="text-center mb-5">Escolha seu jogo</h2>
-        <div class="logo-container">
-            <img src="1.png" alt="Calabret Logo">
-            <p class="slogan">Aposta Calabreso</p>
+        <div class="logo-container" style="width: 50%;">
+            <img src="./img/logo.png" alt="Calabret Logo">
+            <p class="slogan">Aposta Calabreso!</p>
         </div>
-        
-        <section class="games-section">
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+        <section class="games-section" style="width: 50%;">
+            <div class="row row-cols-1 row-cols-md-2 justify-content-center">
                 <div class="col">
                     <div class="card game-card h-100">
                         <img src="https://images.sigma.world/blackjack-card-counting-scaled-1.jpg" class="card-img-top" alt="Blackjack">
                         <div class="card-body">
                             <h2 class="card-title">Blackjack</h2>
-                            <p class="card-text">Tente sua sorte no clássico jogo de 21.</p>
-                            <a href="jogo.html"><button class="btn btn-primary">Jogar Agora</button></a>
+                            <p class="card-text">Se divirta e ganhe dinheiro clássico no jogo de 21.</p>
+                            <a href="./blackjack.html"><button class="btn btn-primary">Jogar Agora</button></a>
                         </div>
                     </div>
                 </div>
@@ -208,7 +63,7 @@
     <footer>
         <p>&copy; 2024 Calabret. Todos os direitos reservados.</p>
     </footer>
-
+    <script src="./js/saldo.js"></script>
     <!-- Importando Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
