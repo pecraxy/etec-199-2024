@@ -35,8 +35,9 @@ body {
 }
 
 .dealer .score, .player .score {
-    margin-left: 15px;
-    font-size: 2rem;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    width: 2rem;
     font-weight: bold;
 }
 

@@ -1,6 +1,9 @@
 var deckId = '';
 var playerCards;
 var dealerCards;
+var playerScore;
+var dealerScore;
+
 const blackjackStart = async () => {
     $('.betValue').html(bank);
     const deckResponse = await $.ajax({
@@ -13,23 +16,41 @@ const blackjackStart = async () => {
     let playerResponse = await drawCards(2, deckId);
     playerCards = playerResponse.cards;
 
-    playerCards.forEach(card => {
-        const newCard = $(`<img src="${card.image}" class="card">`);
-        $('.playerCards').append(newCard);
-    });
-
     let dealerResponse = await drawCards(2, deckId);
     dealerCards = dealerResponse.cards;
 
+    playerCards.forEach(card => {
+        const newCard = $(`<img src="${card.image}" class="card" style="display: none;">`);
+        $('.playerCards').append(newCard);
+    });
+
     dealerCards.forEach((card, index) => {
         let newCard;
-        newCard = $(`<img src="${card.image}" class="card">`);
+        newCard = $(`<img src="${card.image}" class="card" style="display: none;">`);
         if (index === 0){
-            newCard = $(`<img src="https://deckofcardsapi.com/static/img/back.png" class="card">`);
+            newCard = $(`<img src="https://deckofcardsapi.com/static/img/back.png" class="card" style="display: none;">`);
         }
         $('.dealerCards').append(newCard);
     });
+    $('img.card').fadeIn();
+    dealerScore = calcFirstDealerScore(dealerCards);
+    playerScore = calcScore(playerCards);
+    $('#dealerScore').html(dealerScore);
+    $('#playerScore').html(playerScore);
+    if(playerScore === 21){
+        
+    }
 }
+
+$('#hit').on('click', async function(){
+    let cardResponse = await drawCards(1, deckId);
+    let card = cardResponse.cards[0];
+    const newCard = $(`<img src="${card.image}" class="card" style="display: none;">`);
+    $('.playerCards').append(newCard);
+    $('img.card').fadeIn();
+    playerCards.push(card);
+    console.log(playerCards);
+});
 
 const drawCards = async (amount, deckId) => {
     const response = await $.ajax({
@@ -40,11 +61,32 @@ const drawCards = async (amount, deckId) => {
     return response;
 }
 
-const calcPoints = (cards) => {
-    let total;
+const calcScore = (cards) => {
+    let total = 0;
     let hasAce;
     cards.forEach((card) => {
-        total += valueOfCard(card.value);
+        let cardValue = valueOfCard(card.value);
+        total += cardValue;
+        if (card.value === 'A') {
+            hasAce = true;
+        }
+    });
+    if (total > 21 && hasAce){
+        total -= 10;
+    }
+    return total;
+}
+
+const calcFirstDealerScore = (cards) => {
+    let total = 0;
+    let hasAce;
+    cards.forEach((card, index) => {
+        if (index === 0){
+            total += 0;
+        } else {
+            let cardValue = valueOfCard(card.value);
+            total += cardValue;
+        }
         if (card.value === 'A') {
             hasAce = true;
         }
@@ -65,3 +107,8 @@ const valueOfCard = (value) => {
     }
 }
 
+const checkWinner = () => {
+    if (playerScore > 21 && dealerScore < playerScore){
+
+    }
+}
