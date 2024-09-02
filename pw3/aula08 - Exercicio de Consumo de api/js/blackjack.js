@@ -33,15 +33,19 @@ const blackjackStart = async () => {
         $('.dealerCards').append(newCard);
     });
     $('img.card').fadeIn();
+    $('#hit').removeAttr('disabled');
+    $('#stand').removeAttr('disabled');
     dealerScore = calcFirstDealerScore(dealerCards);
     playerScore = calcScore(playerCards);
     $('#dealerScore').html(dealerScore);
     $('#playerScore').html(playerScore);
     if(playerScore === 21){
-        
+        flipTurnedCard();
+        checkWinner();
     }
 }
 
+//HIT
 $('#hit').on('click', async function(){
     let cardResponse = await drawCards(1, deckId);
     let card = cardResponse.cards[0];
@@ -49,8 +53,27 @@ $('#hit').on('click', async function(){
     $('.playerCards').append(newCard);
     $('img.card').fadeIn();
     playerCards.push(card);
-    console.log(playerCards);
+    changePlayerScore();
+    flipTurnedCard();
+    checkBust();
 });
+
+//STAND
+$('#stand').on('click', async function(){
+    flipTurnedCard();
+    while (dealerScore < 17){
+        let cardResponse = await drawCards(1, deckId);
+        let card = cardResponse.cards[0];
+        const newCard = $(`<img src="${card.image}" class="card" style="display: none;">`);
+        dealerCards.push(card);
+        $('.dealerCards').append(newCard);
+        await delay(1000);
+        $('img.card').fadeIn();
+        changeDealerScore();
+    }
+    await delay(1000);
+    checkWinner();
+})
 
 const drawCards = async (amount, deckId) => {
     const response = await $.ajax({
@@ -67,7 +90,7 @@ const calcScore = (cards) => {
     cards.forEach((card) => {
         let cardValue = valueOfCard(card.value);
         total += cardValue;
-        if (card.value === 'A') {
+        if (card.value === 'ACE') {
             hasAce = true;
         }
     });
@@ -83,11 +106,11 @@ const calcFirstDealerScore = (cards) => {
     cards.forEach((card, index) => {
         if (index === 0){
             total += 0;
-        } else {
+        } else{
             let cardValue = valueOfCard(card.value);
             total += cardValue;
         }
-        if (card.value === 'A') {
+        if (card.value === 'ACE') {
             hasAce = true;
         }
     });
@@ -97,18 +120,63 @@ const calcFirstDealerScore = (cards) => {
     return total;
 }
 
+const changePlayerScore = () => {
+    playerScore = calcScore(playerCards);
+    $('#playerScore').html(playerScore);
+}
+
+const changeDealerScore = () => {
+    dealerScore = calcScore(dealerCards);
+    $('#dealerScore').html(dealerScore);
+}
+
 const valueOfCard = (value) => {
     if (['JACK', 'QUEEN', 'KING'].includes(value)) {
         return 10;
-    } else if (value === 'A') {
+    } else if (value === 'ACE') {
         return 11;  // Ás inicialmente vale 11
     } else {
         return parseInt(value);
     }
 }
 
-const checkWinner = () => {
-    if (playerScore > 21 && dealerScore < playerScore){
-
+const flipTurnedCard = () => {
+    let imgDealerCards = $('.dealerCards').children();
+    if (imgDealerCards[0].src == 'https://deckofcardsapi.com/static/img/back.png'){
+        imgDealerCards[0].src = dealerCards[0].image;
+        changeDealerScore();
     }
+}
+
+const checkBust = () => {
+    if (playerScore > 21){
+        alert('busted, dealer wins');
+    }
+}
+
+
+const checkWinner = () => {
+    if (playerScore == 21 && dealerScore == 21 || playerScore == dealerScore){
+        alert('empate');
+    }
+    if (playerScore == 21 || dealerScore > 21){
+        alert('player wins');
+    }
+
+    if (dealerScore == 21 || playerScore > 21){
+        alert ('dealer wins');
+    }
+
+    if (dealerScore != 21 && playerScore != 21){
+        if (dealerScore > playerScore){
+            alert('dealer wins');
+        }
+        if (playerScore > dealerScore){
+            alert('player wins');
+        }
+    }
+}
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
