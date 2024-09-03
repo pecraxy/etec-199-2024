@@ -1,8 +1,8 @@
 var deckId = '';
 var playerCards;
 var dealerCards;
-var playerScore;
-var dealerScore;
+var playerScore = 0;
+var dealerScore = 0;
 
 const blackjackStart = async () => {
     $('.betValue').html(bank);
@@ -40,6 +40,7 @@ const blackjackStart = async () => {
     $('#dealerScore').html(dealerScore);
     $('#playerScore').html(playerScore);
     if(playerScore === 21){
+        await delay(1000);
         flipTurnedCard();
         checkWinner();
     }
@@ -54,14 +55,17 @@ $('#hit').on('click', async function(){
     $('img.card').fadeIn();
     playerCards.push(card);
     changePlayerScore();
-    flipTurnedCard();
+    await delay(450);
     checkBust();
+    if (playerScore == 21){
+        checkWinner();
+    }
 });
 
 //STAND
 $('#stand').on('click', async function(){
     flipTurnedCard();
-    while (dealerScore < 17){
+    while (dealerScore < 17 && dealerScore < playerScore){
         let cardResponse = await drawCards(1, deckId);
         let card = cardResponse.cards[0];
         const newCard = $(`<img src="${card.image}" class="card" style="display: none;">`);
@@ -150,29 +154,36 @@ const flipTurnedCard = () => {
 
 const checkBust = () => {
     if (playerScore > 21){
-        alert('busted, dealer wins');
+        flipTurnedCard();
+        dealerWin();
     }
 }
 
 
-const checkWinner = () => {
+const checkWinner = async () => {
+    await delay(300);
     if (playerScore == 21 && dealerScore == 21 || playerScore == dealerScore){
-        alert('empate');
+        draw();
+        return;
     }
     if (playerScore == 21 || dealerScore > 21){
-        alert('player wins');
+        playerWin();
+        return;
     }
 
     if (dealerScore == 21 || playerScore > 21){
-        alert ('dealer wins');
+        dealerWin();
+        return;
     }
 
     if (dealerScore != 21 && playerScore != 21){
         if (dealerScore > playerScore){
-            alert('dealer wins');
+            dealerWin();
+            return;
         }
         if (playerScore > dealerScore){
-            alert('player wins');
+            playerWin();
+            return;
         }
     }
 }
@@ -180,3 +191,84 @@ const checkWinner = () => {
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+const playerWin = () => {
+    let modalBody = $('#resultModal .modal-body');
+    let winValue = parseInt(bank) * 2;
+    saldo += winValue;
+    saldoUpdate(saldo);
+    bank = 0;
+    modalBody.empty();
+    modalBody.append(`
+        <h1>Calma calabreso! Você ganhou!</h1>
+        <video width="100%" controls autoplay>
+            <source src="../img/calma_calabreso.mp4" type="video/mp4">Seu navegador não suporta o elemento de vídeo.
+        </video>
+        <h3>Você ganhou R$<span id="winValue">${winValue}</span></h5>
+        `);
+    $('#resultModal').modal('show');
+}
+
+const dealerWin = () => {
+    let modalBody = $('#resultModal .modal-body');
+    bank = 0;
+    modalBody.empty();
+    modalBody.append(`
+        <h1>Que pena calabreso! Você perdeu!</h1>
+        <h3>Continue jogando que você vai ganhar, calabreso!</h3>
+        `);
+    $('#resultModal').modal('show');
+}
+
+const draw = () => {
+    let modalBody = $('#resultModal .modal-body');
+    saldo += parseInt(bank);
+    saldoUpdate(saldo);
+    bank = 0;
+    modalBody.empty();
+    modalBody.append(`
+        <h1>Empate, calabreso!</h1>
+        <h3>Calma, calabreso! Você não perdeu, nem ganhou!</h3>
+        `);
+    $('#resultModal').modal('show');
+}
+
+$('#jogarNovamente').on('click', function(){
+    let modalBody = $('#resultModal .modal-body');
+    modalBody.empty();
+    $('.blackjack-container').fadeOut();
+    $('#resultModal').modal('hide');
+    $('.playerCards').empty();
+    $('.dealerCards').empty();
+    $('#playerScore').html('');
+    $('#dealerScore').html('');
+    $('#valorBanco').html('');
+    $('.aposta-container').empty();
+    deckId = '';
+    playerCards = [];
+    dealerCards = [];
+    playerScore = 0;
+    dealerScore = 0;
+    bank = 0;
+    $('.betting-container').fadeIn();
+});
+
+$('#resultModal').on('hidden.bs.modal', function(){
+    let modalBody = $('#resultModal .modal-body');
+    modalBody.empty();
+    $('.blackjack-container').fadeOut();
+    $('#resultModal').modal('hide');
+    $('.playerCards').empty();
+    $('.dealerCards').empty();
+    $('#playerScore').html('');
+    $('#dealerScore').html('');
+    $('#valorBanco').html('');
+    $('.aposta-container').empty();
+    deckId = '';
+    playerCards = [];
+    dealerCards = [];
+    playerScore = 0;
+    dealerScore = 0;
+    bank = 0;
+    $('.betting-container').fadeIn();
+})

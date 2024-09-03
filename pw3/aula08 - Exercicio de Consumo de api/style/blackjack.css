@@ -222,3 +222,34 @@ body {
 .navBet{
     color: yellow;
 }
+
+.modal-content {
+    background-color: #333;
+    color: white;
+}
+
+#jogarNovamente {
+    background-color: #ff4747;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.6s;
+}
+
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 1rem;
+}
+
+.modal-buttons{
+    text-align: center;
+    margin: 1rem;
+}
