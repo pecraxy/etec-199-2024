@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView, Modal } from 'react-native';
 import BalanceService from '../../Services/BalanceService';
 
-const Blackjack = () => {
+const Bet = () => {
   let balance = BalanceService.getBalance();
   const [saldo, setSaldo] = useState(BalanceService.getBalance()); // Exemplo de saldo inicial
   const [aposta, setAposta] = useState(0);
@@ -219,4 +219,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Blackjack;
+export default Bet;

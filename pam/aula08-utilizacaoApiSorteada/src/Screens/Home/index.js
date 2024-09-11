@@ -25,7 +25,7 @@ const CalabretScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.gamesSection}>
-          <TouchableOpacity style={styles.gameCard} onPress={() => navigation.navigate('Blackjack')}>
+          <TouchableOpacity style={styles.gameCard} onPress={() => navigation.navigate('Bet')}>
             <Image source={{ uri: 'https://images.sigma.world/blackjack-card-counting-scaled-1.jpg' }} style={styles.cardImage} />
             <View style={styles.cardBody}>
               <Text style={styles.cardTitle}>Blackjack</Text>

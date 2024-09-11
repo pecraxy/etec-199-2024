@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/Home';
 import Blackjack from '../screens/Blackjack';
+import Bet from '../Screens/Bet';
 
 export default function App() {
     const stack = createStackNavigator();
@@ -12,6 +13,14 @@ export default function App() {
                 <stack.Screen
                     name="Home"
                     component={Home}
+                    options={{
+                        title: '',
+                        headerShown: false
+                    }}
+                ></stack.Screen>
+                <stack.Screen
+                    name="Bet"
+                    component={Bet}
                     options={{
                         title: '',
                         headerShown: false
