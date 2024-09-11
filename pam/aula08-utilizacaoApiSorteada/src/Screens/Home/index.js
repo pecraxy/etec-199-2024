@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
-import BalanceService from '../../Services/BalanceService';
-
+import Navbar from '../../Components/Navbar';
 const CalabretScreen = ({ navigation }) => {
-  let balance = BalanceService.getFormattedBalance();
-  
   return (
     <View style={styles.container}>
       {/* Navbar */}
-      <View style={styles.navbar}>
-        <View>
-          <Text style={styles.navLogo}>CALABRET</Text>
-        </View>
-        <View style={styles.saldoContainer}>
-          <Text style={styles.saldo}>Saldo: R$<Text style={styles.saldoHighlight}>{balance}</Text></Text>
-        </View>
-      </View>
+      <Navbar></Navbar>
 
       {/* Main Content */}
       <ScrollView contentContainerStyle={styles.mainContent}>

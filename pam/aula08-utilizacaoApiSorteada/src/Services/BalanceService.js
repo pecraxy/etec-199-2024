@@ -16,8 +16,9 @@ class BalanceService{
         return Intl.NumberFormat('pt-BR').format(this.getBalance());
     }
 
-     saldoUpdate(){
-
+    static saldoUpdate(value){
+        let saldo = this.getBalance() + value;
+        sessionStorage.setItem('saldo', saldo);
     }
 }
 

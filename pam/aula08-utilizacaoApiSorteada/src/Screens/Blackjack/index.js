@@ -3,44 +3,7 @@ import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView, Modal } fr
 import BalanceService from '../../Services/BalanceService';
 
 const Blackjack = () => {
-  let balance = BalanceService.getBalance();
-  const [saldo, setSaldo] = useState(BalanceService.getBalance()); // Exemplo de saldo inicial
-  const [aposta, setAposta] = useState(0);
-  const [bets, setBets] = useState([]);
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const chips = [
-    { value: 1, img: require('../../../assets/chip.png') },
-    { value: 5, img: require('../../../assets/chip.png') },
-    { value: 25, img: require('../../../assets/chip.png') },
-    { value: 50, img: require('../../../assets/chip.png') },
-    { value: 100, img: require('../../../assets/chip.png') },
-  ];
-
-  // Adicionar ficha ao apostar
-  const addBet = (chip) => {
-    setBets([...bets, chip]);
-    handleAposta(chip.value)
-  };
-
-  // Remover ficha da aposta
-  const removeBet = (index) => {
-    const updatedBets = [...bets];
-    let removedChip = updatedBets.splice(index, 1)[0]; // Remove o item pelo índice
-    setBets(updatedBets);
-    handleAposta(-removedChip.value)
-    
-  };
-
-  const handleAposta = (value) => {
-    setAposta(aposta + value);
-  };
-
-  const handleJogarNovamente = () => {
-    setAposta(0);
-    setModalVisible(false);
-  };
-
+  
   return (
     <View style={styles.container}>
       {/* Navbar */}
@@ -58,25 +21,6 @@ const Blackjack = () => {
       {/* Aposta Section */}
       <View style={styles.bettingContainer}>
         <Text style={styles.bank}>Aposta: R${aposta}</Text>
-        <View style={styles.betsContainer}>
-          {bets.map((chip, index) => (
-            <TouchableOpacity key={index} onPress={() => removeBet(index)} style={styles.chip}>
-              <Image source={require('../../../assets/chip.png')} style={styles.chipImage} />
-              <Text style={styles.textOverlay}>{chip.value}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-        <View style={styles.chipsContainer}>
-          {chips.map((chip, index) => (
-            <TouchableOpacity key={index} onPress={() => addBet(chip)} style={styles.chip}>
-              <Image source={chip.img} style={styles.chipImage} />
-              <Text style={styles.textOverlay}>{chip.value}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-        <TouchableOpacity style={styles.btnApostar} onPress={() => setModalVisible(true)}>
-          <Text style={styles.btnText}>Apostar</Text>
-        </TouchableOpacity>
       </View>
 
       {/* Modal */}
