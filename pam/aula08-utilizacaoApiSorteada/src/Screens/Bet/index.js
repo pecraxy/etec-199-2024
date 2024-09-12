@@ -51,9 +51,8 @@ const Bet = ({navigation}) => {
 
   const bet = () => {
     if (aposta > 0 ){
-      alert(aposta);
       BalanceService.saldoUpdate(parseInt(-aposta));
-      navigation.navigate('Blackjack');
+      navigation.navigate('Blackjack', {aposta});
     }
   }
 
@@ -98,24 +97,6 @@ const Bet = ({navigation}) => {
           <Text style={styles.btnText}>Apostar</Text>
         </TouchableOpacity>
       </View>
-
-      {/* Modal */}
-      <Modal visible={modalVisible} animationType="slide" transparent={true}>
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Resultado do Jogo</Text>
-            <Text style={styles.modalBody}>Você apostou R${aposta}</Text>
-            <TouchableOpacity
-              style={styles.btnApostar}
-              onPress={handleJogarNovamente}
-            >
-              <Text style={styles.btnText}>Jogar Novamente</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
-
-      {/* Footer */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>
           &copy; 2024 Calabret. Todos os direitos reservados.
