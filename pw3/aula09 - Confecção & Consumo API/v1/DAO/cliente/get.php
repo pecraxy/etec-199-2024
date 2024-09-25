@@ -1,28 +1,28 @@
 <?php 
    
 
-   function pegar_usuario($conexao){
+   function getAllCients($conexao){
 
-    $sql = "SELECT * FROM tbl_usuarios";
+    $sql = "SELECT * FROM Clientes";
     $res = mysqli_query($conexao, $sql) or die("Erro ao tentar consultar");
 
-    $usuarios = [];
+    $clientes = [];
 
     while ($registro = mysqli_fetch_array($res)) {
-        $id = utf8_encode( $registro['id']);
-        $nome = utf8_encode($registro['nome']);
-        $email = utf8_encode(  $registro['email']);
-        $telefone = utf8_encode( $registro['telefone']);
-        $dataNascimento = utf8_encode( $registro['dataNascimento']);
-        $senha = utf8_encode( $registro['senha']);
-        $papel = utf8_encode( $registro['papel']);
+        $id = utf8_encode( $registro['ID']);
+        $nome = utf8_encode($registro['Nome']);
+        $endereco = utf8_encode(  $registro['Endereco']);
+        $cpf = utf8_encode( $registro['CPF']);
+        $telefone = utf8_encode( $registro['Telefone']);
+        $email = utf8_encode( $registro['Email']);
+        $dataNascimento = utf8_encode( $registro['DataNascimento']);
         
-        $novo_usuario = new Usuario($id, $nome, $email, $telefone, $dataNascimento, $senha, $papel);
-        array_push($usuarios ,$novo_usuario);
+        $novo_usuario = new Cliente($id, $nome, $email, $endereco, $cpf, $telefone, $dataNascimento);
+        array_push($clientes ,$novo_usuario);
     };
     
     fecharConexao($conexao);
-    return $usuarios;
+    return $clientes;
    };
 
    

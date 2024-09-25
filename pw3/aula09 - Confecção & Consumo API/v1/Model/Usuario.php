@@ -1,24 +1,21 @@
 <?php 
-
-    class Usuario{
+    class Cliente{
         public $id;
         public $nome;
-        public $email;
+        public $endereco;
+        public $cpf;
         public $telefone;
+        public $email;
         public $dataNascimento;
-        public $senha;
-        public $papel;
 
-        function __construct($id_informado, $nome_informado, $email_informado, $telefone_informado, $dataNascimento_informada, $senha_informada, $papel_informado){
-            $this->id = $id_informado;
-            $this->nome = $nome_informado;
-            $this->email = $email_informado;
-            $this->telefone = $telefone_informado;
-            $this->dataNascimento = $dataNascimento_informada;
-            $this->senha = $senha_informada;
-            $this->papel = $papel_informado;
-        }
-
-        
+        function __construct($id, $nome, $email, $endereco, $cpf, $telefone, $dataNascimento){
+            $this->id = $id;
+            $this->nome = $nome;
+            $this->email = $email;
+            $this->endereco = $endereco;
+            $this->cpf = $cpf;
+            $this->telefone = $telefone;
+            $this->dataNascimento = $dataNascimento;
+        }    
     }
 ?>

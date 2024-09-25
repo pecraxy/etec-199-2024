@@ -15,15 +15,12 @@
     //echo $req["REQUEST_METHOD"];
      switch ($req["REQUEST_METHOD"]) {
          case 'GET':
-            $usuarios = json_encode(pegar_usuario($conexao));
-            echo $usuarios;
-             break;
+            $clientes = json_encode(getAllCients($conexao));
+            echo $clientes;
+            break;
          case 'POST':
-             
-             $u = receberDados();
-             
-    
-             $resp = incluir_usuario($conexao, $u);
+             $data = getRequestData();
+             $resp = insert_client($conexao, $data);
              
              $in = new Resposta('', '');
                 if($resp){
@@ -39,9 +36,9 @@
             $dados = json_decode(file_get_contents('php://input'));
             $id = $dados->id;
 
-            $u = receberDados();
+            $data = getRequestData();
 
-            $resp = editar_usuario($conexao, $u, $id);
+            $resp = edit_client($conexao, $data, $id);
 
             $in = new Resposta('', '');
                 if($resp){
@@ -57,7 +54,7 @@
             $campo = $dados->campo;
             $valor = $dados->valor;
             $id = $dados->id;
-            $resp = editar_usuario_parcialmente($conexao, $campo, $valor, $id);
+            $resp = partial_edit_client($conexao, $campo, $valor, $id);
             $resposta = new Resposta('','');
             if($resp){
                 $resposta = criarResposta(204, 'Atualizado com sucesso');
@@ -70,7 +67,7 @@
             $dados = json_decode(file_get_contents('php://input'));
             $id = $dados->id;
            // echo $id;
-            $resp = deletar_usuario($conexao, $id);
+            $resp = delete_client($conexao, $id);
             $resposta = new Resposta('', '');
             if($resp){
                 $resposta = criarResposta('204', 'Excluido com suceso');

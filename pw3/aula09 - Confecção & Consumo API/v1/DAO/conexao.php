@@ -4,7 +4,7 @@
         $host = 'localhost';
         $usuario = 'root';
         $senha = '';
-        $bd = 'db_usuarios';
+        $bd = 'loja';
 
         // realizar a conexão 
         $conection = mysqli_connect($host, $usuario, $senha, $bd);
