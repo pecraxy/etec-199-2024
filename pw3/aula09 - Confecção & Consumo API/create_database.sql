@@ -162,4 +162,4 @@ INSERT INTO pedidos_produtos (id_pedido, id_produto, qtd) VALUES
 SELECT * FROM Produtos;
 SELECT * FROM Pedidos;
 SELECT * FROM  pedidos_produtos;
-SELECT *FROM  Clientes;
+SELECT * FROM  Clientes;

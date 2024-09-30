@@ -1,28 +1,28 @@
 <?php 
    
 
-   function pegar_usuario($conexao){
+   function getAllProducts($conexao){
 
-    $sql = "SELECT * FROM tbl_usuarios";
+    $sql = "SELECT * FROM Produtos";
     $res = mysqli_query($conexao, $sql) or die("Erro ao tentar consultar");
 
-    $usuarios = [];
+    $produtos = [];
 
     while ($registro = mysqli_fetch_array($res)) {
-        $id = utf8_encode( $registro['id']);
-        $nome = utf8_encode($registro['nome']);
-        $email = utf8_encode(  $registro['email']);
-        $telefone = utf8_encode( $registro['telefone']);
-        $dataNascimento = utf8_encode( $registro['dataNascimento']);
-        $senha = utf8_encode( $registro['senha']);
-        $papel = utf8_encode( $registro['papel']);
+        $id = utf8_encode($registro['ID']);
+        $nome = utf8_encode($registro['Nome']);
+        $descricao = utf8_encode($registro['Descricao']);
+        $qtd = utf8_encode($registro['qtd']);
+        $marca = utf8_encode($registro['Marca']);
+        $preco = utf8_encode($registro['Preco']);
+        $validade = utf8_encode($registro['Validade']);
+        $novo_produto = new Produto($id, $nome, $descricao, $qtd, $marca, $preco, $validade);
         
-        $novo_usuario = new Usuario($id, $nome, $email, $telefone, $dataNascimento, $senha, $papel);
-        array_push($usuarios ,$novo_usuario);
-    };
-    
+        array_push($produtos, $novo_produto);
+    }
+
     fecharConexao($conexao);
-    return $usuarios;
+    return $produtos;
    };
 
    

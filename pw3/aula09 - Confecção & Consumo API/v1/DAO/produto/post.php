@@ -1,11 +1,15 @@
 <?php 
    
-   function incluir_usuario($conexao, $u){
-
-        $sql = "INSERT INTO tbl_usuarios (nome, email, telefone, dataNascimento, senha, papel) VALUES ('$u->nome', '$u->email','$u->telefone', '$u->dataNascimento', '$u->senha','$u->papel');";
-        $res = mysqli_query($conexao, $sql) or die("Erro ao tentar incluir");
-        fecharConexao($conexao);
-        return $res;
-   };
+   function insert_client($conexao, $cliente) {
+      // Monta a consulta SQL
+      $sql = "INSERT INTO Clientes (Nome, Endereco, CPF, Telefone, Email, DataNascimento) VALUES ('$cliente->nome', '$cliente->endereco', '$cliente->cpf', '$cliente->telefone', '$cliente->email', '$cliente->dataNascimento');";
+      
+      // Executa a consulta
+      $res = mysqli_query($conexao, $sql) or die("Erro ao tentar incluir: " . mysqli_error($conexao));
+      
+      // Fecha a conexão
+      fecharConexao($conexao);
+      return $res;
+  }  
 
 ?>
