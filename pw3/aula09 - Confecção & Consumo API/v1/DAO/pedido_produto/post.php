@@ -1,11 +1,11 @@
 <?php 
-   
-   function incluir_usuario($conexao, $u){
-
-        $sql = "INSERT INTO tbl_usuarios (nome, email, telefone, dataNascimento, senha, papel) VALUES ('$u->nome', '$u->email','$u->telefone', '$u->dataNascimento', '$u->senha','$u->papel');";
-        $res = mysqli_query($conexao, $sql) or die("Erro ao tentar incluir");
-        fecharConexao($conexao);
-        return $res;
-   };
+   function insert_order_product($conexao, $pedido) {
+      $sql = "INSERT INTO pedidos_produtos (id_pedido, id_produto, qtd) 
+            VALUES ($pedido->id_pedido, $pedido->id_produto, $pedido->qtd) 
+            ON DUPLICATE KEY UPDATE qtd = qtd + $pedido->qtd;";
+      $res = mysqli_query($conexao, $sql) or die("Erro ao tentar incluir pedido: " . mysqli_error($conexao));
+      fecharConexao($conexao);
+      return $res;
+  }
 
 ?>

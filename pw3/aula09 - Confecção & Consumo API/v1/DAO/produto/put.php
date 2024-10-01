@@ -1,8 +1,20 @@
 <?php 
    
-   function edit_client($conexao, $cliente, $id) {
-      $sql = "UPDATE Clientes SET Nome = '$cliente->nome', Endereco = '$cliente->endereco', CPF = '$cliente->cpf', Telefone = '$cliente->telefone', Email = '$cliente->email', DataNascimento = '$cliente->dataNascimento' WHERE ID = $id;";
+   function edit_product($conexao, $product, $id) {
+      // Monta a consulta SQL
+      $sql = "UPDATE Produtos SET 
+                  Nome = '$product->nome', 
+                  Descricao = '$product->descricao', 
+                  qtd = $product->qtd, 
+                  Marca = '$product->marca', 
+                  Preco = $product->preco, 
+                  Validade = '$product->validade' 
+              WHERE ID = $id;";
+      
+      // Executa a consulta
       $res = mysqli_query($conexao, $sql) or die("Erro ao tentar atualizar: " . mysqli_error($conexao));
+      
+      // Fecha a conexão
       fecharConexao($conexao);
       return $res;
   }

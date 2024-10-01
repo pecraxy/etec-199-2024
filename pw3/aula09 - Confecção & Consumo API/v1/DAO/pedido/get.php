@@ -1,29 +1,24 @@
 <?php 
-   
+    function getAllOrders($conexao) {
+        $sql = "SELECT * FROM Pedidos";
+        $res = mysqli_query($conexao, $sql) or die("Erro ao tentar consultar pedidos: " . mysqli_error($conexao));
 
-   function pegar_usuario($conexao){
+        $pedidos = [];
 
-    $sql = "SELECT * FROM tbl_usuarios";
-    $res = mysqli_query($conexao, $sql) or die("Erro ao tentar consultar");
+        while ($registro = mysqli_fetch_array($res)) {
+            $id_pedido = $registro['id_pedido'];
+            $id_cliente = $registro['id_cliente'];
+            $data = $registro['data']; 
 
-    $usuarios = [];
+            $novo_pedido = new Pedido($id_pedido, $id_cliente, $data);
 
-    while ($registro = mysqli_fetch_array($res)) {
-        $id = utf8_encode( $registro['id']);
-        $nome = utf8_encode($registro['nome']);
-        $email = utf8_encode(  $registro['email']);
-        $telefone = utf8_encode( $registro['telefone']);
-        $dataNascimento = utf8_encode( $registro['dataNascimento']);
-        $senha = utf8_encode( $registro['senha']);
-        $papel = utf8_encode( $registro['papel']);
-        
-        $novo_usuario = new Usuario($id, $nome, $email, $telefone, $dataNascimento, $senha, $papel);
-        array_push($usuarios ,$novo_usuario);
-    };
-    
-    fecharConexao($conexao);
-    return $usuarios;
-   };
+            // Adiciona o objeto à lista de pedidos
+            array_push($pedidos, $novo_pedido);
+        }
+
+        fecharConexao($conexao);
+        return $pedidos;
+    }
 
    
 ?>

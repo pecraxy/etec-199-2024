@@ -1,12 +1,12 @@
 <?php
     require 'utils.php';
     require_once '../DAO/conexao.php';
-    require_once '../DAO/produto/get.php';
-    require_once '../DAO/produto/delete.php';
-    require_once '../DAO/produto/patch.php';
-    require_once '../DAO/produto/post.php';
-    require_once '../DAO/produto/put.php';
-    require_once '../Model/Produto.php';
+    require_once '../DAO/pedido_produto/get.php';
+    require_once '../DAO/pedido_produto/delete.php';
+    require_once '../DAO/pedido_produto/patch.php';
+    require_once '../DAO/pedido_produto/post.php';
+    require_once '../DAO/pedido_produto/put.php';
+    require_once '../Model/Pedido_Produto.php';
     require '../Model/Resposta.php';
 
     $req = $_SERVER;
@@ -15,12 +15,12 @@
     //echo $req["REQUEST_METHOD"];
      switch ($req["REQUEST_METHOD"]) {
          case 'GET':
-            $produtos = json_encode(getAllProducts($conexao));
+            $produtos = json_encode(getAllOrder_Product($conexao));
             echo $produtos;
             break;
          case 'POST':
              $data = getRequestData();
-             $resp = insert_product($conexao, $data);
+             $resp = insert_order_product($conexao, $data);
              
              $in = new Resposta('', '');
                 if($resp){
@@ -37,7 +37,7 @@
 
             $data = getRequestData();
 
-            $resp = edit_product($conexao, $data, $id);
+            $resp = edit_order($conexao, $data, $id);
 
             $in = new Resposta('', '');
                 if($resp){
@@ -53,7 +53,7 @@
             $campo = $dados->campo;
             $valor = $dados->valor;
             $id = $dados->id;
-            $resp = partial_edit_product($conexao, $campo, $valor, $id);
+            $resp = partial_edit_order($conexao, $campo, $valor, $id);
             $resposta = new Resposta('','');
             if($resp){
                 $resposta = criarResposta(204, 'Atualizado com sucesso');
@@ -66,7 +66,7 @@
             $dados = json_decode(file_get_contents('php://input'));
             $id = $dados->id;
            // echo $id;
-            $resp = delete_product($conexao, $id);
+            $resp = delete_order($conexao, $id);
             $resposta = new Resposta('', '');
             if($resp){
                 $resposta = criarResposta('204', 'Excluido com suceso');
@@ -79,9 +79,5 @@
              # code...
              break;
      }
-
-
-
-
 
 ?>

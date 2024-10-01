@@ -1,11 +1,9 @@
 <?php 
-   
-   function incluir_usuario($conexao, $u){
-
-        $sql = "INSERT INTO tbl_usuarios (nome, email, telefone, dataNascimento, senha, papel) VALUES ('$u->nome', '$u->email','$u->telefone', '$u->dataNascimento', '$u->senha','$u->papel');";
-        $res = mysqli_query($conexao, $sql) or die("Erro ao tentar incluir");
-        fecharConexao($conexao);
-        return $res;
-   };
+   function insert_order($conexao, $pedido) {
+      $sql = "INSERT INTO Pedidos (id_cliente, data) VALUES ($pedido->id_cliente, '$pedido->data');";
+      $res = mysqli_query($conexao, $sql) or die("Erro ao tentar incluir pedido: " . mysqli_error($conexao));
+      fecharConexao($conexao);
+      return $res;
+  }
 
 ?>

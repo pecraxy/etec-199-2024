@@ -1,8 +1,8 @@
 <?php 
    
-   function insert_client($conexao, $cliente) {
+   function insert_product($conexao, $produto) {
       // Monta a consulta SQL
-      $sql = "INSERT INTO Clientes (Nome, Endereco, CPF, Telefone, Email, DataNascimento) VALUES ('$cliente->nome', '$cliente->endereco', '$cliente->cpf', '$cliente->telefone', '$cliente->email', '$cliente->dataNascimento');";
+      $sql = "INSERT INTO Produtos (Nome, Descricao, qtd, Marca, Preco, Validade) VALUES ('$produto->nome', '$produto->descricao', $produto->qtd, '$produto->marca', $produto->preco, '$produto->validade');";
       
       // Executa a consulta
       $res = mysqli_query($conexao, $sql) or die("Erro ao tentar incluir: " . mysqli_error($conexao));
@@ -10,6 +10,7 @@
       // Fecha a conexão
       fecharConexao($conexao);
       return $res;
-  }  
+  }
+   
 
 ?>
