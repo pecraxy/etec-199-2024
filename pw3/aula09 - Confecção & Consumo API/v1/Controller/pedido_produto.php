@@ -33,11 +33,8 @@
              break;
          case 'PUT':
             $dados = json_decode(file_get_contents('php://input'));
-            $id = $dados->id;
-
             $data = getRequestData();
-
-            $resp = edit_order($conexao, $data, $id);
+            $resp = edit_order_product($conexao, $data);
 
             $in = new Resposta('', '');
                 if($resp){
@@ -50,10 +47,7 @@
              break;
          case 'PATCH':
             $dados = json_decode(file_get_contents('php://input'));
-            $campo = $dados->campo;
-            $valor = $dados->valor;
-            $id = $dados->id;
-            $resp = partial_edit_order($conexao, $campo, $valor, $id);
+            $resp = partial_edit_order($conexao, $dados);
             $resposta = new Resposta('','');
             if($resp){
                 $resposta = criarResposta(204, 'Atualizado com sucesso');
@@ -64,9 +58,7 @@
             break;
          case 'DELETE':
             $dados = json_decode(file_get_contents('php://input'));
-            $id = $dados->id;
-           // echo $id;
-            $resp = delete_order($conexao, $id);
+            $resp = delete_order_product($conexao, $dados);
             $resposta = new Resposta('', '');
             if($resp){
                 $resposta = criarResposta('204', 'Excluido com suceso');

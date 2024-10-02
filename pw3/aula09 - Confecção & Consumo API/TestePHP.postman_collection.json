@@ -1,0 +1,782 @@
+{
+	"info": {
+		"_postman_id": "928a480c-3981-47b0-84e6-a2b9f323f16c",
+		"name": "TestePHP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36354403"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "requestGET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/cliente.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"cliente.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requestPOST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Sandreco Almeida\",\r\n    \"endereco\": \"Rua do Sol, 202, Recife, PE\",\r\n    \"cpf\": \"979.851.457-66\",\r\n    \"telefone\": \"(81) 45678-9012\",\r\n    \"email\": \"Sandreco.almeida@example.com\",\r\n    \"dataNascimento\": \"1992-07-30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/cliente.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"cliente.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "666",
+									"disabled": true
+								},
+								{
+									"key": "nome",
+									"value": "ze",
+									"disabled": true
+								},
+								{
+									"key": "sobrenome",
+									"value": "ze",
+									"disabled": true
+								},
+								{
+									"key": "idade",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "cpf",
+									"value": "123.456.789-10",
+									"disabled": true
+								},
+								{
+									"key": "renda_mensal",
+									"value": "2500",
+									"disabled": true
+								},
+								{
+									"key": "taxa",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "imposto",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requestPUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"8\",\r\n    \"nome\": \"Marcelo Almeida\",\r\n    \"endereco\": \"Rua do Sol, 202, Recife, PE\",\r\n    \"cpf\": \"929.858.458-66\",\r\n    \"telefone\": \"(81) 45678-9012\",\r\n    \"email\": \"Sandreco.almeida@example.com\",\r\n    \"dataNascimento\": \"1992-07-30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/cliente.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"cliente.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requestPATCH",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\": \"4\",\r\n   \"campo\": \"nome\",\r\n   \"valor\": \"Marcelo Com Dente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/cliente.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"cliente.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requestDELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/cliente.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"cliente.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"produto.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Coca Cola Café\",\r\n    \"descricao\": \"A melhor coca cola do mundo\",\r\n    \"qtd\": \"44\",\r\n    \"marca\": \"Coca Cola\",\r\n    \"preco\": \"2.39\",\r\n    \"validade\": \"2025-03-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"produto.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "666",
+									"disabled": true
+								},
+								{
+									"key": "nome",
+									"value": "ze",
+									"disabled": true
+								},
+								{
+									"key": "sobrenome",
+									"value": "ze",
+									"disabled": true
+								},
+								{
+									"key": "idade",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "cpf",
+									"value": "123.456.789-10",
+									"disabled": true
+								},
+								{
+									"key": "renda_mensal",
+									"value": "2500",
+									"disabled": true
+								},
+								{
+									"key": "taxa",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "imposto",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"12\",\r\n        \"nome\": \"Coca Cola CafÃ©\",\r\n        \"descricao\": \"A melhor coca cola do mundoooooooo\",\r\n        \"qtd\": \"44\",\r\n        \"marca\": \"Coca Cola\",\r\n        \"preco\": \"2.39\",\r\n        \"validade\": \"2025-03-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"produto.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\": \"11\",\r\n   \"campo\": \"descricao\",\r\n   \"valor\": \"Simplesmente a melhor de todas.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"produto.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"produto.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_cliente\": \"11\",\r\n    \"data\": \"2024-10-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "666",
+									"disabled": true
+								},
+								{
+									"key": "nome",
+									"value": "ze",
+									"disabled": true
+								},
+								{
+									"key": "sobrenome",
+									"value": "ze",
+									"disabled": true
+								},
+								{
+									"key": "idade",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "cpf",
+									"value": "123.456.789-10",
+									"disabled": true
+								},
+								{
+									"key": "renda_mensal",
+									"value": "2500",
+									"disabled": true
+								},
+								{
+									"key": "taxa",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "imposto",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"11\",\r\n        \"id_cliente\": \"11\",\r\n        \"data\": \"2024-08-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\": \"1\",\r\n   \"campo\": \"data\",\r\n   \"valor\": \"2024-10-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido_produto",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido_produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido_produto.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pedido\": \"1\",\r\n    \"id_produto\": \"4\",\r\n    \"qtd\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido_produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido_produto.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "666",
+									"disabled": true
+								},
+								{
+									"key": "nome",
+									"value": "ze",
+									"disabled": true
+								},
+								{
+									"key": "sobrenome",
+									"value": "ze",
+									"disabled": true
+								},
+								{
+									"key": "idade",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "cpf",
+									"value": "123.456.789-10",
+									"disabled": true
+								},
+								{
+									"key": "renda_mensal",
+									"value": "2500",
+									"disabled": true
+								},
+								{
+									"key": "taxa",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "imposto",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pedido\": \"1\",\r\n    \"id_produto\": \"4\",\r\n    \"id_produto_passado\": \"3\",\r\n    \"qtd\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido_produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido_produto.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id_pedido\": \"1\",\r\n   \"id_produto\": \"3\",\r\n   \"campo\": \"qtd\",\r\n   \"valor\": 255\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido_produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido_produto.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pedido\": \"1\",\r\n    \"id_produto\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API/v1/Controller/pedido_produto.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"aula09%20-%20Confec%C3%A7%C3%A3o%20&%20Consumo%20API",
+								"v1",
+								"Controller",
+								"pedido_produto.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
