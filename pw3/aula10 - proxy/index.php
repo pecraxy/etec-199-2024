@@ -6,7 +6,7 @@
     if ($isWindows){
         
 
-        header('location: http://localhost/aula%2010%20-%20proxy/desk_web/');
+        header('location: http://localhost/aula10%20-%20proxy/desk_web/');
               
     } else{
         echo "redirecionando...";
