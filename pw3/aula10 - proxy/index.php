@@ -9,7 +9,7 @@
         header('location: http://localhost/aula10%20-%20proxy/desk_web/');
               
     } else{
-        echo "redirecionando...";
+        header('location: http://localhost:8081');
         
         // echo "jarvis, abrir o tigrinho na calabret mobile";
     }

@@ -75,6 +75,74 @@
         </div>
     </div>
 
+    <!-- Modal para Adicionar/Editar Produto -->
+    <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Adicionar Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <input type="hidden" id="editProductId">
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" class="form-control" id="editName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Descrição:</label>
+                            <textarea class="form-control" id="editDescription"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantidade:</label>
+                            <input type="number" class="form-control" id="editQuantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="brand">Marca:</label>
+                            <input type="text" class="form-control" id="editBrand">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Preço:</label>
+                            <input type="text" class="form-control" id="editPrice" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry">Validade:</label>
+                            <input type="date" class="form-control" id="editExpiry">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar/Editar Produto -->
+    <div class="modal fade" id="singleModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Adicionar Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="singleProductForm">
+                        <input type="hidden" id="singleProductId">
+                        <div class="form-group">
+                            <label for="name" id="tipoCampo"></label>
+                            <input type="text" class="form-control" id="editValor" required>
+                        </div>
+                        <button type="submit" id="saveFieldBtn" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./js/script.js"></script>
 </body>
 </html>
